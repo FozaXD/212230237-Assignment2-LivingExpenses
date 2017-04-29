@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34FBCD0D65FB384F000084D8 /* Pods_Living_Expenses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04A953336EFF8EC93965AFC /* Pods_Living_Expenses.framework */; };
 		D765282A1EB2C42C00D7DF69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76528291EB2C42C00D7DF69 /* AppDelegate.swift */; };
-		D765282C1EB2C42C00D7DF69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765282B1EB2C42C00D7DF69 /* ViewController.swift */; };
 		D765282F1EB2C42C00D7DF69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D765282D1EB2C42C00D7DF69 /* Main.storyboard */; };
 		D76528311EB2C42C00D7DF69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D76528301EB2C42C00D7DF69 /* Assets.xcassets */; };
 		D76528341EB2C42C00D7DF69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76528321EB2C42C00D7DF69 /* LaunchScreen.storyboard */; };
+		D7BA21751EB4726400217481 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BA21741EB4726400217481 /* Calendar.swift */; };
+		D7BA21771EB47DC800217481 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BA21761EB47DC800217481 /* CustomCell.swift */; };
+		D7BA21791EB482E300217481 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BA21781EB482E300217481 /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52B0A59BD7FA56B523FC6FE1 /* Pods-Living Expenses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Living Expenses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Living Expenses/Pods-Living Expenses.debug.xcconfig"; sourceTree = "<group>"; };
+		D04A953336EFF8EC93965AFC /* Pods_Living_Expenses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Living_Expenses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D76528261EB2C42C00D7DF69 /* Living Expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Living Expenses.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D76528291EB2C42C00D7DF69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D765282B1EB2C42C00D7DF69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D765282E1EB2C42C00D7DF69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D76528301EB2C42C00D7DF69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D76528331EB2C42C00D7DF69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D76528351EB2C42C00D7DF69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7BA21741EB4726400217481 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		D7BA21761EB47DC800217481 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		D7BA21781EB482E300217481 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		EA1FBDAB09A6AA8915C07EB1 /* Pods-Living Expenses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Living Expenses.release.xcconfig"; path = "Pods/Target Support Files/Pods-Living Expenses/Pods-Living Expenses.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34FBCD0D65FB384F000084D8 /* Pods_Living_Expenses.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C5BB8CBFAFD0825584895CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D04A953336EFF8EC93965AFC /* Pods_Living_Expenses.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA97F6B8301E43A0026E583A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				52B0A59BD7FA56B523FC6FE1 /* Pods-Living Expenses.debug.xcconfig */,
+				EA1FBDAB09A6AA8915C07EB1 /* Pods-Living Expenses.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D765281D1EB2C42C00D7DF69 = {
 			isa = PBXGroup;
 			children = (
 				D76528281EB2C42C00D7DF69 /* Living Expenses */,
 				D76528271EB2C42C00D7DF69 /* Products */,
+				AA97F6B8301E43A0026E583A /* Pods */,
+				3C5BB8CBFAFD0825584895CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,11 +83,13 @@
 			isa = PBXGroup;
 			children = (
 				D76528291EB2C42C00D7DF69 /* AppDelegate.swift */,
-				D765282B1EB2C42C00D7DF69 /* ViewController.swift */,
+				D7BA21781EB482E300217481 /* Home.swift */,
+				D7BA21741EB4726400217481 /* Calendar.swift */,
 				D765282D1EB2C42C00D7DF69 /* Main.storyboard */,
 				D76528301EB2C42C00D7DF69 /* Assets.xcassets */,
 				D76528321EB2C42C00D7DF69 /* LaunchScreen.storyboard */,
 				D76528351EB2C42C00D7DF69 /* Info.plist */,
+				D7BA21761EB47DC800217481 /* CustomCell.swift */,
 			);
 			path = "Living Expenses";
 			sourceTree = "<group>";
@@ -71,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D76528381EB2C42C00D7DF69 /* Build configuration list for PBXNativeTarget "Living Expenses" */;
 			buildPhases = (
+				C96DCC9E07D754653A0228A5 /* [CP] Check Pods Manifest.lock */,
 				D76528221EB2C42C00D7DF69 /* Sources */,
 				D76528231EB2C42C00D7DF69 /* Frameworks */,
 				D76528241EB2C42C00D7DF69 /* Resources */,
+				DFAF86F4908CE11645874D16 /* [CP] Embed Pods Frameworks */,
+				35F1CC70E003043DAF2F4F4E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,12 +165,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		35F1CC70E003043DAF2F4F4E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Living Expenses/Pods-Living Expenses-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C96DCC9E07D754653A0228A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DFAF86F4908CE11645874D16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Living Expenses/Pods-Living Expenses-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D76528221EB2C42C00D7DF69 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D765282C1EB2C42C00D7DF69 /* ViewController.swift in Sources */,
+				D7BA21751EB4726400217481 /* Calendar.swift in Sources */,
+				D7BA21771EB47DC800217481 /* CustomCell.swift in Sources */,
+				D7BA21791EB482E300217481 /* Home.swift in Sources */,
 				D765282A1EB2C42C00D7DF69 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +342,7 @@
 		};
 		D76528391EB2C42C00D7DF69 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52B0A59BD7FA56B523FC6FE1 /* Pods-Living Expenses.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UVWGSMLG65;
@@ -272,6 +356,7 @@
 		};
 		D765283A1EB2C42C00D7DF69 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA1FBDAB09A6AA8915C07EB1 /* Pods-Living Expenses.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UVWGSMLG65;
@@ -302,6 +387,7 @@
 				D765283A1EB2C42C00D7DF69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
