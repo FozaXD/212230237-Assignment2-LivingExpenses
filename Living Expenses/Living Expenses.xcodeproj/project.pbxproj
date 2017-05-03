@@ -15,6 +15,7 @@
 		D7BA21751EB4726400217481 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BA21741EB4726400217481 /* Calendar.swift */; };
 		D7BA21771EB47DC800217481 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BA21761EB47DC800217481 /* CustomCell.swift */; };
 		D7BA21791EB482E300217481 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BA21781EB482E300217481 /* Home.swift */; };
+		D7E51FB71EB98A4D00208CC8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E51FB61EB98A4D00208CC8 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		D7BA21741EB4726400217481 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		D7BA21761EB47DC800217481 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		D7BA21781EB482E300217481 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		D7E51FB61EB98A4D00208CC8 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		EA1FBDAB09A6AA8915C07EB1 /* Pods-Living Expenses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Living Expenses.release.xcconfig"; path = "Pods/Target Support Files/Pods-Living Expenses/Pods-Living Expenses.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 				D76528291EB2C42C00D7DF69 /* AppDelegate.swift */,
 				D7BA21781EB482E300217481 /* Home.swift */,
 				D7BA21741EB4726400217481 /* Calendar.swift */,
+				D7E51FB61EB98A4D00208CC8 /* Settings.swift */,
 				D765282D1EB2C42C00D7DF69 /* Main.storyboard */,
 				D76528301EB2C42C00D7DF69 /* Assets.xcassets */,
 				D76528321EB2C42C00D7DF69 /* LaunchScreen.storyboard */,
@@ -222,6 +225,7 @@
 				D7BA21771EB47DC800217481 /* CustomCell.swift in Sources */,
 				D7BA21791EB482E300217481 /* Home.swift in Sources */,
 				D765282A1EB2C42C00D7DF69 /* AppDelegate.swift in Sources */,
+				D7E51FB71EB98A4D00208CC8 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
