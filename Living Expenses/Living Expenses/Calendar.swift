@@ -10,9 +10,10 @@ import UIKit
 import JTAppleCalendar
 
 class CalendarView: UIViewController {
-
+//MARK: Constants
     let formatter = DateFormatter()
-    
+  
+//MARK: Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -22,11 +23,9 @@ class CalendarView: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    
-
 }
 
+//MARK: Extenstions
 extension CalendarView: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         formatter.dateFormat = "yyyy MM dd"

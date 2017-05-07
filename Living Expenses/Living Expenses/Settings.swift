@@ -9,18 +9,21 @@
 import UIKit
 
 class SettingsView: UIViewController{
-
-    
+//MARK: Outlets
     @IBOutlet weak var user1ShareTxtBox: UITextField!
-
     @IBOutlet weak var user1ShareStepper: UIStepper!
-    
     @IBOutlet weak var user2ShareTxtBox: UITextField!
-    
     @IBOutlet weak var user2ShareStepper: UIStepper!
     
+//MARK: Actions
     @IBAction func useIntellegentMode(_ sender: UISwitch) {
         enableStateInput(state: sender.isOn)
+    }
+
+//MARK: Functions
+    func dismissViewController() {
+        _ = navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     func enableStateInput(state: Bool)
@@ -31,7 +34,8 @@ class SettingsView: UIViewController{
         user2ShareStepper.isEnabled = state
         
     }
-    
+  
+//MARK: Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,16 +54,4 @@ class SettingsView: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

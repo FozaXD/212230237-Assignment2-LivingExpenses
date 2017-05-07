@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		34FBCD0D65FB384F000084D8 /* Pods_Living_Expenses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04A953336EFF8EC93965AFC /* Pods_Living_Expenses.framework */; };
+		D70380D51EBAC65600785C60 /* AddBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70380D41EBAC65600785C60 /* AddBill.swift */; };
+		D70380D71EBC16D600785C60 /* BillsHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70380D61EBC16D600785C60 /* BillsHomeTableViewCell.swift */; };
 		D765282A1EB2C42C00D7DF69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76528291EB2C42C00D7DF69 /* AppDelegate.swift */; };
 		D765282F1EB2C42C00D7DF69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D765282D1EB2C42C00D7DF69 /* Main.storyboard */; };
 		D76528311EB2C42C00D7DF69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D76528301EB2C42C00D7DF69 /* Assets.xcassets */; };
 		D76528341EB2C42C00D7DF69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76528321EB2C42C00D7DF69 /* LaunchScreen.storyboard */; };
+		D79325221EBD6ACF00C6E654 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D79325211EBD6ACF00C6E654 /* libsqlite3.0.tbd */; };
+		D793252F1EBD6B4800C6E654 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = D79325251EBD6B4700C6E654 /* FMDatabase.m */; };
+		D79325301EBD6B4800C6E654 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D79325271EBD6B4700C6E654 /* FMDatabaseAdditions.m */; };
+		D79325311EBD6B4800C6E654 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = D79325291EBD6B4700C6E654 /* FMDatabasePool.m */; };
+		D79325321EBD6B4800C6E654 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D793252B1EBD6B4800C6E654 /* FMDatabaseQueue.m */; };
+		D79325331EBD6B4800C6E654 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D793252E1EBD6B4800C6E654 /* FMResultSet.m */; };
+		D79325351EBD70E100C6E654 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79325341EBD70E100C6E654 /* CustomCell.swift */; };
+		D79325371EBD910300C6E654 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79325361EBD910300C6E654 /* DBManager.swift */; };
 		D7BA21751EB4726400217481 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BA21741EB4726400217481 /* Calendar.swift */; };
-		D7BA21771EB47DC800217481 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BA21761EB47DC800217481 /* CustomCell.swift */; };
 		D7BA21791EB482E300217481 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BA21781EB482E300217481 /* Home.swift */; };
 		D7E51FB71EB98A4D00208CC8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E51FB61EB98A4D00208CC8 /* Settings.swift */; };
 		D7E51FBB1EB99E2200208CC8 /* BillDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E51FBA1EB99E2200208CC8 /* BillDetails.swift */; };
@@ -22,14 +31,31 @@
 /* Begin PBXFileReference section */
 		52B0A59BD7FA56B523FC6FE1 /* Pods-Living Expenses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Living Expenses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Living Expenses/Pods-Living Expenses.debug.xcconfig"; sourceTree = "<group>"; };
 		D04A953336EFF8EC93965AFC /* Pods_Living_Expenses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Living_Expenses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D70380CE1EBAC30600785C60 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D70380D41EBAC65600785C60 /* AddBill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBill.swift; sourceTree = "<group>"; };
+		D70380D61EBC16D600785C60 /* BillsHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillsHomeTableViewCell.swift; sourceTree = "<group>"; };
 		D76528261EB2C42C00D7DF69 /* Living Expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Living Expenses.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D76528291EB2C42C00D7DF69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D765282E1EB2C42C00D7DF69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D76528301EB2C42C00D7DF69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D76528331EB2C42C00D7DF69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D76528351EB2C42C00D7DF69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D79325211EBD6ACF00C6E654 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		D79325231EBD6B4700C6E654 /* Living Expenses-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Living Expenses-Bridging-Header.h"; sourceTree = "<group>"; };
+		D79325241EBD6B4700C6E654 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = "../../../../../../Downloads/fmdb-master/src/fmdb/FMDatabase.h"; sourceTree = "<group>"; };
+		D79325251EBD6B4700C6E654 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = "../../../../../../Downloads/fmdb-master/src/fmdb/FMDatabase.m"; sourceTree = "<group>"; };
+		D79325261EBD6B4700C6E654 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = "../../../../../../Downloads/fmdb-master/src/fmdb/FMDatabaseAdditions.h"; sourceTree = "<group>"; };
+		D79325271EBD6B4700C6E654 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = "../../../../../../Downloads/fmdb-master/src/fmdb/FMDatabaseAdditions.m"; sourceTree = "<group>"; };
+		D79325281EBD6B4700C6E654 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = "../../../../../../Downloads/fmdb-master/src/fmdb/FMDatabasePool.h"; sourceTree = "<group>"; };
+		D79325291EBD6B4700C6E654 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = "../../../../../../Downloads/fmdb-master/src/fmdb/FMDatabasePool.m"; sourceTree = "<group>"; };
+		D793252A1EBD6B4800C6E654 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = "../../../../../../Downloads/fmdb-master/src/fmdb/FMDatabaseQueue.h"; sourceTree = "<group>"; };
+		D793252B1EBD6B4800C6E654 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = "../../../../../../Downloads/fmdb-master/src/fmdb/FMDatabaseQueue.m"; sourceTree = "<group>"; };
+		D793252C1EBD6B4800C6E654 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = "../../../../../../Downloads/fmdb-master/src/fmdb/FMDB.h"; sourceTree = "<group>"; };
+		D793252D1EBD6B4800C6E654 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = "../../../../../../Downloads/fmdb-master/src/fmdb/FMResultSet.h"; sourceTree = "<group>"; };
+		D793252E1EBD6B4800C6E654 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = "../../../../../../Downloads/fmdb-master/src/fmdb/FMResultSet.m"; sourceTree = "<group>"; };
+		D79325341EBD70E100C6E654 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		D79325361EBD910300C6E654 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		D7BA21741EB4726400217481 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
-		D7BA21761EB47DC800217481 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		D7BA21781EB482E300217481 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		D7E51FB61EB98A4D00208CC8 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D7E51FBA1EB99E2200208CC8 /* BillDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillDetails.swift; sourceTree = "<group>"; };
@@ -41,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D79325221EBD6ACF00C6E654 /* libsqlite3.0.tbd in Frameworks */,
 				34FBCD0D65FB384F000084D8 /* Pods_Living_Expenses.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +78,8 @@
 		3C5BB8CBFAFD0825584895CB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D79325211EBD6ACF00C6E654 /* libsqlite3.0.tbd */,
+				D70380CE1EBAC30600785C60 /* CoreData.framework */,
 				D04A953336EFF8EC93965AFC /* Pods_Living_Expenses.framework */,
 			);
 			name = Frameworks;
@@ -90,14 +119,37 @@
 				D7BA21781EB482E300217481 /* Home.swift */,
 				D7BA21741EB4726400217481 /* Calendar.swift */,
 				D7E51FB61EB98A4D00208CC8 /* Settings.swift */,
+				D70380D41EBAC65600785C60 /* AddBill.swift */,
 				D7E51FBA1EB99E2200208CC8 /* BillDetails.swift */,
+				D70380D61EBC16D600785C60 /* BillsHomeTableViewCell.swift */,
+				D79325341EBD70E100C6E654 /* CustomCell.swift */,
+				D79325361EBD910300C6E654 /* DBManager.swift */,
 				D765282D1EB2C42C00D7DF69 /* Main.storyboard */,
 				D76528301EB2C42C00D7DF69 /* Assets.xcassets */,
 				D76528321EB2C42C00D7DF69 /* LaunchScreen.storyboard */,
 				D76528351EB2C42C00D7DF69 /* Info.plist */,
-				D7BA21761EB47DC800217481 /* CustomCell.swift */,
+				D7F9F6901EBFDB1F00207801 /* FMDBAssociatedFiles */,
 			);
 			path = "Living Expenses";
+			sourceTree = "<group>";
+		};
+		D7F9F6901EBFDB1F00207801 /* FMDBAssociatedFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D79325231EBD6B4700C6E654 /* Living Expenses-Bridging-Header.h */,
+				D79325241EBD6B4700C6E654 /* FMDatabase.h */,
+				D79325251EBD6B4700C6E654 /* FMDatabase.m */,
+				D79325261EBD6B4700C6E654 /* FMDatabaseAdditions.h */,
+				D79325271EBD6B4700C6E654 /* FMDatabaseAdditions.m */,
+				D79325281EBD6B4700C6E654 /* FMDatabasePool.h */,
+				D79325291EBD6B4700C6E654 /* FMDatabasePool.m */,
+				D793252A1EBD6B4800C6E654 /* FMDatabaseQueue.h */,
+				D793252B1EBD6B4800C6E654 /* FMDatabaseQueue.m */,
+				D793252C1EBD6B4800C6E654 /* FMDB.h */,
+				D793252D1EBD6B4800C6E654 /* FMResultSet.h */,
+				D793252E1EBD6B4800C6E654 /* FMResultSet.m */,
+			);
+			name = FMDBAssociatedFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +188,7 @@
 					D76528251EB2C42C00D7DF69 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = UVWGSMLG65;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -225,11 +278,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7BA21751EB4726400217481 /* Calendar.swift in Sources */,
-				D7BA21771EB47DC800217481 /* CustomCell.swift in Sources */,
+				D79325351EBD70E100C6E654 /* CustomCell.swift in Sources */,
 				D7BA21791EB482E300217481 /* Home.swift in Sources */,
+				D70380D51EBAC65600785C60 /* AddBill.swift in Sources */,
 				D765282A1EB2C42C00D7DF69 /* AppDelegate.swift in Sources */,
 				D7E51FB71EB98A4D00208CC8 /* Settings.swift in Sources */,
+				D79325301EBD6B4800C6E654 /* FMDatabaseAdditions.m in Sources */,
+				D79325331EBD6B4800C6E654 /* FMResultSet.m in Sources */,
+				D70380D71EBC16D600785C60 /* BillsHomeTableViewCell.swift in Sources */,
+				D79325311EBD6B4800C6E654 /* FMDatabasePool.m in Sources */,
+				D79325321EBD6B4800C6E654 /* FMDatabaseQueue.m in Sources */,
 				D7E51FBB1EB99E2200208CC8 /* BillDetails.swift in Sources */,
+				D793252F1EBD6B4800C6E654 /* FMDatabase.m in Sources */,
+				D79325371EBD910300C6E654 /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,11 +414,14 @@
 			baseConfigurationReference = 52B0A59BD7FA56B523FC6FE1 /* Pods-Living Expenses.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = UVWGSMLG65;
 				INFOPLIST_FILE = "Living Expenses/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.Living-Expenses";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Living Expenses/Living Expenses-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -367,11 +431,13 @@
 			baseConfigurationReference = EA1FBDAB09A6AA8915C07EB1 /* Pods-Living Expenses.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = UVWGSMLG65;
 				INFOPLIST_FILE = "Living Expenses/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.Living-Expenses";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Living Expenses/Living Expenses-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -9,7 +9,8 @@
 import UIKit
 import JTAppleCalendar
 
+//Creates the cell details and enables the use of JTAppleCalendar.
 class CustomCell: JTAppleCell {
+//MASK: Outlets
     @IBOutlet weak var dateLabel: UILabel!
-
 }
