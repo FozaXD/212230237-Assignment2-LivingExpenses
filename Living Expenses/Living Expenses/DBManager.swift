@@ -126,12 +126,54 @@ class DBManager: NSObject {
             catch {
                 print(error.localizedDescription)
             }
-            
+            print(bills)
             database.close()
         }
         
         return bills
     }
+    
+    func loadBillsForDate(date: Date) -> [BillInformation]! {
+        var billsBySetDate: [BillInformation]!
+        
+        var dateToString: String
+        
+        dateFormatter.dateFormat = "dd/MM/yy"
+        dateToString = dateFormatter.string(from: date)
+        
+        if openDatabase() {
+            let query = "select * from BillsDB where \(field_EndDate) = '\(dateToString)' order by \(field_BillName) asc"
+            
+            do {
+                print(database)
+                let results = try database.executeQuery(query, values: nil)
+                
+                while results.next() {
+                    let bill = BillInformation(billID: Int(results.int(forColumn: field_BillID)),
+                                               billName: results.string(forColumn: field_BillName),
+                                               startDate: results.string(forColumn: field_StartDate),
+                                               endDate: results.string(forColumn: field_EndDate),
+                                               uec: results.bool(forColumn: field_UEC),
+                                               cost: decimal(string: results.string(forColumn: field_Cost)),
+                                               paid: decimal(string: results.string(forColumn: field_Paid))
+                    )
+                    if billsBySetDate == nil {
+                        billsBySetDate = [BillInformation]()
+                    }
+                    
+                    billsBySetDate.append(bill)
+                }
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+            print(billsBySetDate)
+            database.close()
+        }
+        
+        return billsBySetDate
+    }
+
     
     func loadBillsTotal() -> NSNumber {
         var result: NSNumber = 0.00

@@ -22,6 +22,7 @@ class AddBillView: UIViewController,  UITextFieldDelegate {
 //MARK: Actions
     @IBAction func addBill(_ sender: UIButton) {
         formatter.generatesDecimalNumbers = true
+        dateFormatter.dateFormat = "dd/MM/yy"
         
         var costTextString: String
         costTextString = costText.text!
