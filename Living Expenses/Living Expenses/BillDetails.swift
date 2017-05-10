@@ -12,6 +12,7 @@ class BillDetailsView: UIViewController {
 //MARK: Variables
     var billID: Int!
     var billInfo: BillInformation!
+    var segueFromController : String!
     
 //MARK: Outlets
     @IBOutlet weak var billName: UILabel!
@@ -26,14 +27,25 @@ class BillDetailsView: UIViewController {
         dismissViewController()
     }
     
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+        dismissViewController()
+    }
+    
 //MARK: Functions
     func didScreenEdgePan(sender: UIScreenEdgePanGestureRecognizer) {
         dismissViewController()
     }
     
     func dismissViewController() {
-        _ = navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
+        if segueFromController == "HomeView"
+        {
+            self.performSegue(withIdentifier: "returnFromBillViewToHomeSegueId", sender: nil)
+        }
+        else if segueFromController == "CalendarView"
+        {
+            self.performSegue(withIdentifier: "returnFromBillViewToCalendarSegueId", sender: nil)
+            
+        }
     }
     
     func setLabels() {

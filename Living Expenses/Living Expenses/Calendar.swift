@@ -30,6 +30,19 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
+
+//MARK: Action
+    @IBAction func unwindFromSettingsToCalendarView(segue:UIStoryboardSegue)
+    {
+        //bills = DBManager.shared.loadBills()
+        //self.billListTV.reloadData()
+    }
+    
+    @IBAction func unwindFromBillDetailsToCalendarView(segue:UIStoryboardSegue)
+    {
+        //bills = DBManager.shared.loadBills()
+        //self.billListTV.reloadData()
+    }
     
 //MARK: Functions
     func SetLabels()
@@ -175,6 +188,10 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
         SetLabels()
     }
 
+    // Get the new view controller using segue.destinationViewController.
+    // Pass billID object to the new view controller so we know what bill to get details for and display.
+    //Also sets the return path to the correct view.
+    //Similar to homeview-prepare.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "idBillDetails" {
@@ -183,10 +200,19 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
                 
                 selectedBillIndex = dateSpecificTableView.indexPathForSelectedRow?.row
                 
-                billDetailsViewController.billID = bills[selectedBillIndex].billID
+                billDetailsViewController.billID = billsBySetDate[selectedBillIndex].billID
+                
+                billDetailsViewController.segueFromController = "CalendarView"
             }
         }
         
+        if let identifier = segue.identifier {
+            if identifier == "settingsSegue" {
+                let nav = segue.destination as! UINavigationController
+                let chld = nav.topViewController as! SettingsView
+                chld.segueFromController = "CalendarView"
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

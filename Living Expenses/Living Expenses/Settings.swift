@@ -9,6 +9,9 @@
 import UIKit
 
 class SettingsView: UIViewController{
+//MARK: Variables
+    var segueFromController : String!
+    
 //MARK: Outlets
     @IBOutlet weak var user1ShareTxtBox: UITextField!
     @IBOutlet weak var user1ShareStepper: UIStepper!
@@ -19,12 +22,33 @@ class SettingsView: UIViewController{
     @IBAction func useIntellegentMode(_ sender: UISwitch) {
         enableStateInput(state: sender.isOn)
     }
+    
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+        unwindSegue()
+    }
+    
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+       unwindSegue()
+    }
+    
+    func unwindSegue() {
+        if segueFromController == "HomeView"
+        {
+            self.performSegue(withIdentifier: "returnFromSettingsToHomeSegueId", sender: nil)
+        }
+        else if segueFromController == "CalendarView"
+        {
+            self.performSegue(withIdentifier: "returnFromSettingsToCalendarSegueId", sender: nil)
+            
+        }
+    }
+    
 
 //MARK: Functions
-    func dismissViewController() {
-        _ = navigationController?.popViewController(animated: true)
+    /*func dismissViewController() {
+        //_ = navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
-    }
+    }*/
     
     func enableStateInput(state: Bool)
     {
@@ -38,7 +62,6 @@ class SettingsView: UIViewController{
 //MARK: Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -54,4 +77,5 @@ class SettingsView: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }

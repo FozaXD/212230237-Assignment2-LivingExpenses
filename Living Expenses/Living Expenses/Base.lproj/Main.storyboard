@@ -360,7 +360,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="KK0-K1-yEP">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="eE1-B4-rC0" kind="show" id="wow-Mx-sqh"/>
+                                <segue destination="eE1-B4-rC0" kind="show" identifier="settingsSegue" id="wow-Mx-sqh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -401,6 +401,9 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="CGS-ss-5pi" id="g4u-iq-vTd"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CGS-ss-5pi">
                                 <rect key="frame" x="0.0" y="131" width="375" height="255"/>
@@ -577,12 +580,13 @@
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="nM6-a4-vVb">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="eE1-B4-rC0" kind="show" id="XnO-sy-oP1"/>
+                                <segue destination="eE1-B4-rC0" kind="show" identifier="settingsSegue" id="XnO-sy-oP1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="billListTV" destination="CGS-ss-5pi" id="AwO-Mr-ria"/>
+                        <outlet property="searchBar" destination="aSK-6y-9H9" id="TKR-yu-1a9"/>
                         <outlet property="totalLabel" destination="uke-p0-uSw" id="36G-na-XUl"/>
                     </connections>
                 </viewController>
@@ -598,6 +602,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.087382368739999994" green="0.81122273209999995" blue="0.25542962549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="Ums-1Z-sCt" kind="relationship" relationship="viewControllers" id="GYp-xg-9NX"/>
@@ -870,13 +882,13 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="EDg-dY-4Vk">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="TOc-Ll-CTj" kind="unwind" unwindAction="returnFromSettingsWithSegue:" id="vXP-l6-7Lg"/>
+                                <action selector="cancelButton:" destination="q0r-Ua-Idd" id="zzV-ro-Tkk"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="xTW-Zt-vF2">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="TOc-Ll-CTj" kind="unwind" unwindAction="returnFromSettingsWithSegue:" id="ZK5-zj-st5"/>
+                                <action selector="saveButton:" destination="q0r-Ua-Idd" id="TMd-Ex-0HP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -885,6 +897,8 @@
                         <outlet property="user1ShareTxtBox" destination="Cph-a1-fG6" id="6kM-35-8gE"/>
                         <outlet property="user2ShareStepper" destination="Ixy-Th-WJK" id="dON-n4-ZuZ"/>
                         <outlet property="user2ShareTxtBox" destination="8kl-eB-6m8" id="1ZU-jN-vmZ"/>
+                        <segue destination="TOc-Ll-CTj" kind="unwind" identifier="returnFromSettingsToCalendarSegueId" unwindAction="unwindFromSettingsToCalendarViewWithSegue:" id="p6b-pM-qbG"/>
+                        <segue destination="TOc-Ll-CTj" kind="unwind" identifier="returnFromSettingsToHomeSegueId" unwindAction="unwindFromSettingsToHomeViewWithSegue:" id="sUE-45-9Lq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JmR-qQ-deC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1175,7 +1189,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="z8P-5U-bus">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="RmV-wi-ox5" kind="unwind" unwindAction="returnFromBillDetailsWithSegue:" id="1qu-Y9-p0W"/>
+                                <action selector="cancelButton:" destination="FrB-5Y-JDv" id="DVB-dI-keB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1185,6 +1199,8 @@
                         <outlet property="endDateLabel" destination="Chq-v8-mKk" id="AOQ-7z-StK"/>
                         <outlet property="startDateLabel" destination="OYG-EV-Par" id="PSj-YZ-c1o"/>
                         <outlet property="totalPaidLabel" destination="lnW-jj-D84" id="89L-G6-GWf"/>
+                        <segue destination="RmV-wi-ox5" kind="unwind" identifier="returnFromBillViewToHomeSegueId" unwindAction="unwindFromBillDetailsToHomeViewWithSegue:" id="Y7d-Rs-gDI"/>
+                        <segue destination="RmV-wi-ox5" kind="unwind" identifier="returnFromBillViewToCalendarSegueId" unwindAction="unwindFromBillDetailsToCalendarViewWithSegue:" id="7Hj-wa-tOS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lN3-zB-AW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1371,9 +1387,9 @@
         <image name="HomeTabBarIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XnO-sy-oP1"/>
-        <segue reference="opu-pr-RdV"/>
-        <segue reference="Q5w-sF-wIA"/>
+        <segue reference="wow-Mx-sqh"/>
+        <segue reference="aff-E6-BUc"/>
+        <segue reference="PAE-SS-TOL"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
