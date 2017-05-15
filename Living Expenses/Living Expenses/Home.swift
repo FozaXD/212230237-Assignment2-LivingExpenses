@@ -42,20 +42,20 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     @IBAction func unwindFromSettingsToHomeView(segue:UIStoryboardSegue)
     {
-        bills = DBManager.shared.loadBills()
-        self.billListTV.reloadData()
+        //bills = DBManager.shared.loadBills()
+        //self.billListTV.reloadData()
     }
     
     @IBAction func unwindFromBillDetailsToHomeView(segue:UIStoryboardSegue)
     {
-        bills = DBManager.shared.loadBills()
-        self.billListTV.reloadData()
+        //bills = DBManager.shared.loadBills()
+        //self.billListTV.reloadData()
     }
     
     @IBAction func returnFromAddBill(segue : UIStoryboardSegue)
     {
-        bills = DBManager.shared.loadBills()
-        self.billListTV.reloadData()
+        //bills = DBManager.shared.loadBills()
+        //self.billListTV.reloadData()
         SetLabels()
     }
     
@@ -82,6 +82,7 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        formatter.numberStyle = NumberFormatter.Style.currency
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellRIdent, for: indexPath) as! BillsHomeTableViewCell
         
@@ -98,8 +99,9 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             {
                 cell.uecLabel.text = "Yes"
             }
-            cell.costLabel?.text = "$" + String(describing: currentBill.cost.decimalValue)
-            cell.paidLabel?.text = "$" + String(describing: currentBill.paid.decimalValue)
+            print(currentBill.cost)
+            cell.costLabel?.text = formatter.string(from: currentBill.cost)!
+            cell.paidLabel?.text = formatter.string(from: currentBill.paid)!
             
         }
         else
@@ -116,8 +118,8 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             {
                 cell.uecLabel.text = "Yes"
             }
-            cell.costLabel?.text = "$" + String(describing: currentBill.cost.decimalValue)
-            cell.paidLabel?.text = "$" + String(describing: currentBill.paid.decimalValue)
+            cell.costLabel?.text = formatter.string(from: currentBill.cost)!
+            cell.paidLabel?.text = formatter.string(from: currentBill.paid)!
         }
         
         return cell
@@ -194,6 +196,11 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         SetLabels()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        searchBar.text = ""
+        self.title = "Home"
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass billID object to the new view controller so we know what bill to get details for and display.
@@ -205,7 +212,7 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                 
                 selectedBillIndex = billListTV.indexPathForSelectedRow?.row
 
-                if (searchActive)
+                if searchBar.text != ""
                 {
                     billDetailsViewController.billID = filteredBills[selectedBillIndex].billID
                 }

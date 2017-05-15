@@ -31,6 +31,7 @@ class SettingsView: UIViewController{
        unwindSegue()
     }
     
+    
     func unwindSegue() {
         if segueFromController == "HomeView"
         {
@@ -45,11 +46,6 @@ class SettingsView: UIViewController{
     
 
 //MARK: Functions
-    /*func dismissViewController() {
-        //_ = navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
-    }*/
-    
     func enableStateInput(state: Bool)
     {
         user1ShareTxtBox.isEnabled = state
@@ -67,10 +63,7 @@ class SettingsView: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         //self.tabBar.isHidden = true;
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        //self.tabBar.isHidden = true;
+        self.title = "Bill Details"
     }
 
     override func didReceiveMemoryWarning() {

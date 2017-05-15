@@ -68,6 +68,10 @@ class AddBillView: UIViewController,  UITextFieldDelegate {
         costText.keyboardType = .numbersAndPunctuation
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = "New Bill"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

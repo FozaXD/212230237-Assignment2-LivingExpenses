@@ -11,7 +11,7 @@ import JTAppleCalendar
 
 class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 //MARK: Constants
-    let formatter = DateFormatter()
+    let formatterDate = DateFormatter()
     let cellRIdent = "BillCell"
     let selectedMonthColour = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
     let thisMonthColour = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -59,6 +59,7 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        formatter.numberStyle = NumberFormatter.Style.currency
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellRIdent, for: indexPath) as! BillsHomeTableViewCell
         
@@ -76,8 +77,8 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
         {
             cell.uecLabel.text = "Yes"
         }
-        cell.costLabel?.text = "$" + String(describing: currentBill.cost.decimalValue)
-        cell.paidLabel?.text = "$" + String(describing: currentBill.paid.decimalValue)
+        cell.costLabel?.text = formatter.string(from: currentBill.cost)!
+        cell.paidLabel?.text = formatter.string(from: currentBill.paid)!
         
         return cell
     }
@@ -110,11 +111,11 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
     func setupViewsOfCalendar(visibleDates: DateSegmentInfo) {
         let date = visibleDates.monthDates.first!.date
         
-        formatter.dateFormat = "yyyy"
-        yearLabel.text = formatter.string(from: date)
+        formatterDate.dateFormat = "yyyy"
+        yearLabel.text = formatterDate.string(from: date)
         
-        formatter.dateFormat = "MMMM"
-        monthLabel.text = formatter.string(from: date)
+        formatterDate.dateFormat = "MMMM"
+        monthLabel.text = formatterDate.string(from: date)
     }
     
     func selectCalendarCell(view: JTAppleCell, cellState: CellState)
@@ -186,6 +187,7 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
         setupCalendarView()
         setBillDates()
         SetLabels()
+        self.title = "Calendar"
     }
 
     // Get the new view controller using segue.destinationViewController.
@@ -224,12 +226,12 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
 //MARK: Extenstions
 extension CalendarView: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        formatter.dateFormat = "yyyy MM dd"
-        formatter.timeZone = Calendar.current.timeZone
-        formatter.locale = Calendar.current.locale
+        formatterDate.dateFormat = "yyyy MM dd"
+        formatterDate.timeZone = Calendar.current.timeZone
+        formatterDate.locale = Calendar.current.locale
         
-        let startDate = formatter.date(from: "2017 01 01")!
-        let endDate = formatter.date(from: "2030 12 31")!
+        let startDate = formatterDate.date(from: "2017 01 01")!
+        let endDate = formatterDate.date(from: "2030 12 31")!
         
         
         let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate)

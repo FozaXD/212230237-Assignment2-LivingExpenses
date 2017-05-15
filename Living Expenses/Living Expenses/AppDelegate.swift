@@ -15,6 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     // MARK: - Core Data stack
     
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        
+        UINavigationBar.appearance().titleTextAttributes = [ NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 28)!]
+        
+        return true
+    }
+    
    /* lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation

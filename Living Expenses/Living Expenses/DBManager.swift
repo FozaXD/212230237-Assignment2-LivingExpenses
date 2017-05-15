@@ -31,7 +31,7 @@ class DBManager: NSObject {
     
     //MARK: Functions
     func decimal(string: String) -> NSNumber {
-        formatter.maximumFractionDigits = 2
+        formatter.numberStyle = NumberFormatter.Style.decimal
         return (formatter.number(from: string)) ?? 0
     }
     
@@ -126,7 +126,6 @@ class DBManager: NSObject {
             catch {
                 print(error.localizedDescription)
             }
-            print(bills)
             database.close()
         }
         
@@ -167,7 +166,6 @@ class DBManager: NSObject {
             catch {
                 print(error.localizedDescription)
             }
-            print(billsBySetDate)
             database.close()
         }
         

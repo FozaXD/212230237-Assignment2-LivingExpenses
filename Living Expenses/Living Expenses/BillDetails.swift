@@ -49,11 +49,13 @@ class BillDetailsView: UIViewController {
     }
     
     func setLabels() {
+        formatter.numberStyle = NumberFormatter.Style.currency
+        
         billName.text = billInfo.billName
         startDateLabel.text = billInfo.startDate
         endDateLabel.text = billInfo.endDate
-        costLabel.text = "$" + String(describing: billInfo.cost.decimalValue)
-        totalPaidLabel.text = "$" + String(describing: billInfo.paid.decimalValue)
+        costLabel.text = formatter.string(from: billInfo.cost)!
+        totalPaidLabel.text = formatter.string(from: billInfo.paid)!
     }
     
     func removeBillfromDB()
@@ -70,7 +72,7 @@ class BillDetailsView: UIViewController {
             }
         }
     }
-  
+
 //MARK: Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +91,8 @@ class BillDetailsView: UIViewController {
                 }
             })
         }
+        
+        self.title = "Bill Details"
     }
     
     override func didReceiveMemoryWarning() {
