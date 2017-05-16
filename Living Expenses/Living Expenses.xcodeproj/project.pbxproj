@@ -10,6 +10,7 @@
 		34FBCD0D65FB384F000084D8 /* Pods_Living_Expenses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04A953336EFF8EC93965AFC /* Pods_Living_Expenses.framework */; };
 		D70380D51EBAC65600785C60 /* AddBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70380D41EBAC65600785C60 /* AddBill.swift */; };
 		D70380D71EBC16D600785C60 /* BillsHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70380D61EBC16D600785C60 /* BillsHomeTableViewCell.swift */; };
+		D74CF6071EC9B1AC000AB7DF /* UtilityReadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CF6061EC9B1AC000AB7DF /* UtilityReadings.swift */; };
 		D765282A1EB2C42C00D7DF69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76528291EB2C42C00D7DF69 /* AppDelegate.swift */; };
 		D765282F1EB2C42C00D7DF69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D765282D1EB2C42C00D7DF69 /* Main.storyboard */; };
 		D76528311EB2C42C00D7DF69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D76528301EB2C42C00D7DF69 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		D70380CE1EBAC30600785C60 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D70380D41EBAC65600785C60 /* AddBill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBill.swift; sourceTree = "<group>"; };
 		D70380D61EBC16D600785C60 /* BillsHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillsHomeTableViewCell.swift; sourceTree = "<group>"; };
+		D74CF6061EC9B1AC000AB7DF /* UtilityReadings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UtilityReadings.swift; path = ../UtilityReadings.swift; sourceTree = "<group>"; };
 		D76528261EB2C42C00D7DF69 /* Living Expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Living Expenses.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D76528291EB2C42C00D7DF69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D765282E1EB2C42C00D7DF69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				D7E51FB61EB98A4D00208CC8 /* Settings.swift */,
 				D70380D41EBAC65600785C60 /* AddBill.swift */,
 				D7E51FBA1EB99E2200208CC8 /* BillDetails.swift */,
+				D74CF6061EC9B1AC000AB7DF /* UtilityReadings.swift */,
 				D70380D61EBC16D600785C60 /* BillsHomeTableViewCell.swift */,
 				D79325341EBD70E100C6E654 /* CustomCell.swift */,
 				D79325361EBD910300C6E654 /* DBManager.swift */,
@@ -283,6 +286,7 @@
 				D70380D51EBAC65600785C60 /* AddBill.swift in Sources */,
 				D765282A1EB2C42C00D7DF69 /* AppDelegate.swift in Sources */,
 				D7E51FB71EB98A4D00208CC8 /* Settings.swift in Sources */,
+				D74CF6071EC9B1AC000AB7DF /* UtilityReadings.swift in Sources */,
 				D79325301EBD6B4800C6E654 /* FMDatabaseAdditions.m in Sources */,
 				D79325331EBD6B4800C6E654 /* FMResultSet.m in Sources */,
 				D70380D71EBC16D600785C60 /* BillsHomeTableViewCell.swift in Sources */,

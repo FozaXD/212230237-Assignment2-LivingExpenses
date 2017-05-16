@@ -152,6 +152,7 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func setBillDates() {
+        if bills == nil {return}
         datesToBeSelected = []
         dateFormatter.dateFormat = "dd/MM/yy"
         

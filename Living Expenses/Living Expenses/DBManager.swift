@@ -19,6 +19,10 @@ class DBManager: NSObject {
     let field_UEC = "uec"
     let field_Cost = "cost"
     let field_Paid = "paid"
+    let field_UtilityType = "utilitytype"
+    let field_CostPerUnit = "costperunit"
+    let field_DailyCost = "dailycost"
+    
     let field_Total = "total"
     
     let databaseFileName = "database.sqlite"
@@ -44,7 +48,7 @@ class DBManager: NSObject {
             if database != nil {
                 // Open the database.
                 if database.open() {
-                    let createBillsTableQuery = "create table BillsDB (\(field_BillID) integer primary key autoincrement not null, \(field_BillName) text not null, \(field_StartDate) text not null, \(field_EndDate) text not null, \(field_UEC) bool not null default 0, \(field_Cost) string not null, \(field_Paid) string not null)"
+                    let createBillsTableQuery = "create table BillsDB (\(field_BillID) integer primary key autoincrement not null, \(field_BillName) text not null, \(field_StartDate) text not null, \(field_EndDate) text not null, \(field_UEC) bool not null default 0, \(field_Cost) string not null, \(field_Paid) string not null, \(field_UtilityType) string, \(field_CostPerUnit) string, \(field_DailyCost) string)"
                     
                     do {
                         try database.executeUpdate(createBillsTableQuery, values: nil)
@@ -82,12 +86,12 @@ class DBManager: NSObject {
         return false
     }
     
-    func insertBillData(billName: String, startDate: String, endDate: String, uec: Bool, cost: NSNumber) {
+    func insertBillData(billName: String, startDate: String, endDate: String, uec: Bool, cost: NSNumber, utilityType: String, costPerUnit: NSNumber, dailyCost: NSNumber) {
         
         if openDatabase() {
             
             var query = ""
-            query += "insert into BillsDB (\(field_BillID), \(field_BillName), \(field_StartDate), \(field_EndDate), \(field_UEC), \(field_Cost), \(field_Paid)) values (null, '\(billName)', '\(startDate)', '\(endDate)', '\(uec)', '\(cost)', '0');"
+            query += "insert into BillsDB (\(field_BillID), \(field_BillName), \(field_StartDate), \(field_EndDate), \(field_UEC), \(field_Cost), \(field_Paid), \(field_UtilityType), \(field_CostPerUnit), \(field_DailyCost)) values (null, '\(billName)', '\(startDate)', '\(endDate)', '\(Int(NSNumber(value: uec)))', '\(cost)', 0, '\(utilityType)', '\(costPerUnit)', '\(dailyCost)');"
             
             if !database.executeStatements(query) {
                 print("Failed to insert initial data into the database.")
@@ -114,7 +118,10 @@ class DBManager: NSObject {
                                                endDate: results.string(forColumn: field_EndDate),
                                                uec: results.bool(forColumn: field_UEC),
                                                cost: decimal(string: results.string(forColumn: field_Cost)),
-                                               paid: decimal(string: results.string(forColumn: field_Paid))
+                                               paid: decimal(string: results.string(forColumn: field_Paid)),
+                                               utilitytype: results.string(forColumn: field_UtilityType),
+                                               costperunit: decimal(string: results.string(forColumn: field_CostPerUnit)),
+                                               dailycost: decimal(string: results.string(forColumn: field_DailyCost))
                     )
                     if bills == nil {
                         bills = [BillInformation]()
@@ -154,7 +161,10 @@ class DBManager: NSObject {
                                                endDate: results.string(forColumn: field_EndDate),
                                                uec: results.bool(forColumn: field_UEC),
                                                cost: decimal(string: results.string(forColumn: field_Cost)),
-                                               paid: decimal(string: results.string(forColumn: field_Paid))
+                                               paid: decimal(string: results.string(forColumn: field_Paid)),
+                                               utilitytype: results.string(forColumn: field_UtilityType),
+                                               costperunit: decimal(string: results.string(forColumn: field_CostPerUnit)),
+                                               dailycost: decimal(string: results.string(forColumn: field_DailyCost))
                     )
                     if billsBySetDate == nil {
                         billsBySetDate = [BillInformation]()
@@ -216,9 +226,12 @@ class DBManager: NSObject {
                                                       endDate: results.string(forColumn: field_EndDate),
                                                       uec: results.bool(forColumn: field_UEC),
                                                       cost: decimal(string: results.string(forColumn: field_Cost)),
-                                                      paid: decimal(string: results.string(forColumn: field_Paid))
+                                                      paid: decimal(string: results.string(forColumn: field_Paid)),
+                                                      utilitytype: results.string(forColumn: field_UtilityType),
+                                                      costperunit: decimal(string: results.string(forColumn: field_CostPerUnit)),
+                                                      dailycost: decimal(string: results.string(forColumn: field_DailyCost))
                     )
-                    
+                    print(billInformation)
                 }
                 else {
                     print(database.lastError())

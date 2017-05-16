@@ -17,6 +17,9 @@ struct BillInformation {
     var uec: Bool!
     var cost: NSNumber!
     var paid: NSNumber!
+    var utilitytype: String!
+    var costperunit: NSNumber!
+    var dailycost: NSNumber!
 }
 
 class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate {

@@ -20,6 +20,7 @@ class BillDetailsView: UIViewController {
     @IBOutlet weak var endDateLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var totalPaidLabel: UILabel!
+    @IBOutlet weak var utilityDetailsButton: UIButton!
 
 //MARK: Actions
     @IBAction func removeBill(_ sender: UIButton) {
@@ -32,6 +33,10 @@ class BillDetailsView: UIViewController {
     }
     
 //MARK: Functions
+    func checkUEC() {
+        utilityDetailsButton.isHidden = !billInfo.uec
+    }
+    
     func didScreenEdgePan(sender: UIScreenEdgePanGestureRecognizer) {
         dismissViewController()
     }
@@ -56,6 +61,8 @@ class BillDetailsView: UIViewController {
         endDateLabel.text = billInfo.endDate
         costLabel.text = formatter.string(from: billInfo.cost)!
         totalPaidLabel.text = formatter.string(from: billInfo.paid)!
+        
+        
     }
     
     func removeBillfromDB()
@@ -87,16 +94,27 @@ class BillDetailsView: UIViewController {
                     if bill != nil {
                         self.billInfo = bill
                         self.setLabels()
+                        self.checkUEC()
                     }
                 }
             })
         }
-        
         self.title = "Bill Details"
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "idUtilityReadings" {
+                let nav = segue.destination as! UINavigationController
+                let UtilityReadingsViewController = nav.topViewController as! UtilityReadingsView
+                UtilityReadingsViewController.billID = self.billID
+            }
+        }
     }
 }
