@@ -22,8 +22,8 @@ class SettingsView: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     var settingsID: Int!
     
     var activeField: UITextField?
-//MARK: Outlets
     
+//MARK: Outlets
     @IBOutlet weak var user1Name: UITextField!
     @IBOutlet weak var user2Name: UITextField!
     @IBOutlet weak var user1ShareTxtBox: UITextField!
@@ -38,6 +38,7 @@ class SettingsView: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var user2NextPayLable: UILabel!
     
 //MARK: Actions
+    //Set the stepper values based on each other.
     @IBAction func user1StepperValueChange(_ sender: UIStepper) {
         user1ShareTxtBox.text = Int(sender.value).description
         user2ShareStepper.value = 100 - sender.value
@@ -49,8 +50,6 @@ class SettingsView: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         user1ShareStepper.value = 100 - sender.value
         user1ShareTxtBox.text = String(user1ShareStepper.value)
     }
-    
-    
     
     @IBAction func useIntellegentMode(_ sender: UISwitch) {
         enableStateInput(state: sender.isOn)
@@ -65,8 +64,6 @@ class SettingsView: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         unwindSegue()
     }
     
-    
-    
     @IBAction func user1DatePickerChange(_ sender: UIDatePicker) {
         CalcNextPayDates()
         SetNextPayLabel()
@@ -78,11 +75,13 @@ class SettingsView: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     }
     
 //MARK: Functions
+    //Update the settings record for SettingsID 1, done via the database wrapper.
     func SaveSettings() {
         dateFormatter.dateFormat = "dd/MM/yy"
         DBManager.shared.updateSettings(withID: 1, user1Name: user1Name.text!, user2Name: user2Name.text!, user1Paid: user1PaidPicker.selectedRow(inComponent: 0), user2Paid: user2PaidPicker.selectedRow(inComponent: 0), user1LastPay: dateFormatter.string(from: user1DatePicker.date), user2LastPay: dateFormatter.string(from: user2DatePicker.date), user1NextPay: user1NextPayLabel.text!, user2NextPay: user2NextPayLable.text!, user1Share: Int(user1ShareStepper.value))
     }
     
+    //Calculate the pay difference dates between last paid and next pay (i.e. using the pay cycle variable).
     func CalcNextPayDates() {
         dateFormatter.dateFormat = "dd/MM/yy"
         
@@ -114,6 +113,7 @@ class SettingsView: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
 
     }
 
+    //Enables user to return to the correct view.
     func unwindSegue() {
         if segueFromController == "HomeView"
         {
@@ -126,6 +126,7 @@ class SettingsView: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         }
     }
     
+    //General data initialization.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -194,6 +195,7 @@ class SettingsView: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         user2NextPayLable.text = user2NextPay
     }
     
+    //Allows textboxes below the keyboard to be pushed up so that the user can see.
     func keyboardWillShow(notification: NSNotification) {
         if (activeField == user1Name) {return}
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {

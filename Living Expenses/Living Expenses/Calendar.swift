@@ -34,17 +34,14 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
 //MARK: Action
     @IBAction func unwindFromSettingsToCalendarView(segue:UIStoryboardSegue)
     {
-        //bills = DBManager.shared.loadBills()
-        //self.billListTV.reloadData()
     }
     
     @IBAction func unwindFromBillDetailsToCalendarView(segue:UIStoryboardSegue)
     {
-        //bills = DBManager.shared.loadBills()
-        //self.billListTV.reloadData()
     }
     
 //MARK: Functions
+    //General initalization.
     func SetLabels()
     {
         totalLabel.text = String(describing: DBManager.shared.loadBillsTotal().decimalValue)
@@ -58,6 +55,7 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
         return (billsBySetDate != nil) ? billsBySetDate.count : 0
     }
     
+    //Sets each rows data in the table view. Dataset (grabbed via query in wrapper) only collects records associated with selected calendar date.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         formatter.numberStyle = NumberFormatter.Style.currency
         
@@ -82,12 +80,14 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         return cell
     }
-    
+
+    //Parse selected bill information to bill details.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedBillIndex = indexPath.row
         performSegue(withIdentifier: "idBillDetails", sender: nil)
     }
     
+    //Delete record.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if DBManager.shared.deleteBill(withID: billsBySetDate[indexPath.row].billID) {
@@ -98,6 +98,7 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
+    //Setups required for JTAppleCalendar
     func setupCalendarView() {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
@@ -108,6 +109,7 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
         
     }
     
+    //Formate Month and Year label used on calendar screen (i.e. changes based with calendar).
     func setupViewsOfCalendar(visibleDates: DateSegmentInfo) {
         let date = visibleDates.monthDates.first!.date
         
@@ -118,6 +120,7 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
         monthLabel.text = formatterDate.string(from: date)
     }
     
+    //Allows selection of datas inside JTAppleCalendar.
     func selectCalendarCell(view: JTAppleCell, cellState: CellState)
     {
         guard let validCell = view as? CustomCell else { return }
@@ -130,6 +133,7 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
 
+    //Configures JTAppleCalendar.
     func configureCalCellTextColour(view: JTAppleCell?, cellState: CellState)
     {
         guard let validCell = view as? CustomCell else {return}
@@ -151,6 +155,7 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
+    //Gets the bill dates used to highlight due dates in the JTAppleCalendar.
     func setBillDates() {
         if bills == nil {return}
         datesToBeSelected = []
@@ -162,6 +167,7 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
+    //Refresh function.
     func reloadData() {
         billsBySetDate = DBManager.shared.loadBillsForDate(date: selectedListDate)
         bills = DBManager.shared.loadBills()
@@ -225,6 +231,7 @@ class CalendarView: UIViewController, UITableViewDelegate, UITableViewDataSource
 }
 
 //MARK: Extenstions
+//JTAppleCalendar required extenstions. (initializes the parameters required by JTAppleCalendar).
 extension CalendarView: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         formatterDate.dateFormat = "yyyy MM dd"

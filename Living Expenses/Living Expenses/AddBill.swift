@@ -62,19 +62,6 @@ class AddBillView: UIViewController,  UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        if activeText !=
-//        if string.characters.count == 0 {
-//            return true
-//        }
-//        
-//        let currentText = costText.text ?? ""
-//        let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
-//        
-//        return prospectiveText.isNumeric() &&
-//            prospectiveText.characters.count <= 7
-//    }
-    
     func keyboardWillShow(notification: NSNotification) {
         if (activeField == costText || activeField == billText) {return}
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {

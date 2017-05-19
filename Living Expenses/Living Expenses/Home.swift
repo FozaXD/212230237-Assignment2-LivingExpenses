@@ -9,6 +9,7 @@
 import UIKit
 
 //#MARK: Struct
+//Sets the data holder so that tableviews can use it.
 struct BillInformation {
     var billID: Int!
     var billName: String!
@@ -85,23 +86,17 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     @IBOutlet weak var searchBar: UISearchBar!
     
 //MARK: Actions
-    
+//Set (old) unwind actions.
     @IBAction func unwindFromSettingsToHomeView(segue:UIStoryboardSegue)
     {
-        //bills = DBManager.shared.loadBills()
-        //self.billListTV.reloadData()
     }
     
     @IBAction func unwindFromBillDetailsToHomeView(segue:UIStoryboardSegue)
     {
-        //bills = DBManager.shared.loadBills()
-        //self.billListTV.reloadData()
     }
     
     @IBAction func returnFromAddBill(segue : UIStoryboardSegue)
     {
-        //bills = DBManager.shared.loadBills()
-        //self.billListTV.reloadData()
         SetLabels()
     }
     
@@ -110,7 +105,8 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     {
         totalLabel.text = String(describing: DBManager.shared.loadBillsTotal().decimalValue)
     }
-
+    
+    //Required for tableview (returns number of sections) - default is 1.
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -120,6 +116,7 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         filteredBills = bills
     }
     
+    //Count number of rows used in tableview.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(searchActive) {
             return filteredBills.count
@@ -127,6 +124,7 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         return (bills != nil) ? bills.count : 0;
     }
     
+    //Set format and load bill details into each row (cell).
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         formatter.numberStyle = NumberFormatter.Style.currency
         
@@ -171,12 +169,13 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         return cell
         
     }
-    
+    //Set selected bill details when row in tableview is selected.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedBillIndex = indexPath.row
         performSegue(withIdentifier: "idBillDetails", sender: nil)
     }
     
+    //Allows the deletion of rows (and record from database).
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if DBManager.shared.deleteBill(withID: bills[indexPath.row].billID) {
@@ -186,6 +185,7 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
+    //Set search bar states
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true;
     }
@@ -202,6 +202,7 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         searchActive = false;
     }
     
+    //Set search bar data.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         filteredBills = bills.filter({ (text) -> Bool in
@@ -229,6 +230,7 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
+        //On inital boot add a record in SettingsDB required to run. Could have put this inside the check if database created but wanted create futher understanding of database wrapper by generating new query.
         if DBManager.shared.loadSettingsRecordCount() == 0
         {
             DBManager.shared.insertSettingsData(user1Name: "User1", user2Name: "User2", user1Paid: 0, user2Paid: 0, user1LastPay: "01/01/17", user2LastPay: "01/01/17", user1NextPay: "01/01/17", user2NextPay: "01/01/17", user1Share: 50)
@@ -240,6 +242,7 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         billListTV.dataSource = self
         searchBar.delegate = self
         
+        //Check if database is created.
         if CreatedDatabase == false {
         CreatedDatabase = DBManager.shared.createDatabase()
         }
@@ -292,12 +295,12 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 }
 
 //MARK: Extenstions
+//Allows user to dismiss keyboard when entering information into text boxes.
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

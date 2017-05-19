@@ -158,6 +158,7 @@ class DBManager: NSObject {
         return created
     }
     
+    //Open the database
     func openDatabase() -> Bool {
         if database == nil {
             if FileManager.default.fileExists(atPath: pathToDatabase) {
@@ -353,7 +354,6 @@ class DBManager: NSObject {
         return utilityTypes
     }
 
-    
     func loadBillsForDate(date: Date) -> [BillInformation]! {
         var billsBySetDate: [BillInformation]!
         
@@ -396,8 +396,7 @@ class DBManager: NSObject {
         
         return billsBySetDate
     }
-
-    
+    //Special function that calculates the total for the home screen.
     func loadBillsTotal() -> NSNumber {
         var result: NSNumber = 0.00
         
@@ -422,6 +421,20 @@ class DBManager: NSObject {
             database.close()
         }
         return result
+    }
+    
+    func loadSettingsRecordCount() -> Int {
+        var count: Int = 0
+        if openDatabase() {
+            if let rs = database.executeQuery("SELECT COUNT(*) as Count FROM SettingsDB", withArgumentsIn: nil) {
+                while rs.next() {
+                    count = Int(rs.int(forColumn: "Count"))
+                }
+            }
+            database.close()
+        }
+        
+        return count
     }
     
     func loadBill(withID ID: Int, completionHandler: (_ billInformation: BillInformation?) -> Void) {
@@ -552,21 +565,6 @@ class DBManager: NSObject {
         
         return deleted
     }
-    
-    func loadSettingsRecordCount() -> Int {
-        var count: Int = 0
-        if openDatabase() {
-            if let rs = database.executeQuery("SELECT COUNT(*) as Count FROM SettingsDB", withArgumentsIn: nil) {
-                while rs.next() {
-                    count = Int(rs.int(forColumn: "Count"))
-                }
-            }
-            database.close()
-        }
-        
-        return count
-    }
-    
     
 //MARK: Override Functions
     override init() {

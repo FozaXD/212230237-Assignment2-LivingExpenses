@@ -9,9 +9,9 @@
 import UIKit
 import JTAppleCalendar
 
-//Creates the cell details and enables the use of JTAppleCalendar.
 class CustomCell: JTAppleCell {
 //MASK: Outlets
+    //Creates the cell details and enables the use of JTAppleCalendar.
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var selectedView: UIView!
     @IBOutlet weak var selectedRangeDatesView: UIView!
