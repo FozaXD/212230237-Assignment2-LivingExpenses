@@ -22,6 +22,49 @@ struct BillInformation {
     var dailycost: NSNumber!
 }
 
+struct BillPaymentInformation {
+    var paymentID: Int!
+    var billID: Int!
+    var billName: String!
+    var userID: Int!
+    var user: String!
+    var payment: NSNumber!
+}
+
+struct UtilityReadingsInformation {
+    var billID: Int!
+    var billName: String!
+    var reading: Int!
+}
+
+struct UtilityTypesInformation {
+    var utilityID: Int!
+    var utilityName: String!
+}
+
+struct UserPayInformation {
+    var userID: Int!
+    var userName: String!
+    var startDate: String!
+    var endDate: String!
+    var paidOn: String!
+    var other: Bool!
+    var amount: NSNumber!
+}
+
+struct Settings {
+    var settingID: Int!
+    var user1Name: String!
+    var user2Name: String!
+    var user1paid: Int!
+    var user2paid: Int!
+    var user1lastPayDate: String!
+    var user2lastPayDate: String!
+    var user1nextPayDate: String!
+    var user2nextPayDate: String!
+    var shareUser1: Int!
+}
+
 class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate {
     
 //#MARK: Constants
@@ -185,6 +228,11 @@ class HomeView: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        if DBManager.shared.loadSettingsRecordCount() == 0
+        {
+            DBManager.shared.insertSettingsData(user1Name: "User1", user2Name: "User2", user1Paid: 0, user2Paid: 0, user1LastPay: "01/01/17", user2LastPay: "01/01/17", user1NextPay: "01/01/17", user2NextPay: "01/01/17", user1Share: 50)
+        }
         
         billListTV.tableFooterView = UIView(frame: .zero)
         

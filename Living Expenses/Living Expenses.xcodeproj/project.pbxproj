@@ -15,6 +15,7 @@
 		D765282F1EB2C42C00D7DF69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D765282D1EB2C42C00D7DF69 /* Main.storyboard */; };
 		D76528311EB2C42C00D7DF69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D76528301EB2C42C00D7DF69 /* Assets.xcassets */; };
 		D76528341EB2C42C00D7DF69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76528321EB2C42C00D7DF69 /* LaunchScreen.storyboard */; };
+		D768708E1ECECC8300A41031 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768708D1ECECC8300A41031 /* Settings.swift */; };
 		D79325221EBD6ACF00C6E654 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D79325211EBD6ACF00C6E654 /* libsqlite3.0.tbd */; };
 		D793252F1EBD6B4800C6E654 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = D79325251EBD6B4700C6E654 /* FMDatabase.m */; };
 		D79325301EBD6B4800C6E654 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D79325271EBD6B4700C6E654 /* FMDatabaseAdditions.m */; };
@@ -25,7 +26,6 @@
 		D79325371EBD910300C6E654 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79325361EBD910300C6E654 /* DBManager.swift */; };
 		D7BA21751EB4726400217481 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BA21741EB4726400217481 /* Calendar.swift */; };
 		D7BA21791EB482E300217481 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BA21781EB482E300217481 /* Home.swift */; };
-		D7E51FB71EB98A4D00208CC8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E51FB61EB98A4D00208CC8 /* Settings.swift */; };
 		D7E51FBB1EB99E2200208CC8 /* BillDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E51FBA1EB99E2200208CC8 /* BillDetails.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +42,7 @@
 		D76528301EB2C42C00D7DF69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D76528331EB2C42C00D7DF69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D76528351EB2C42C00D7DF69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D768708D1ECECC8300A41031 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D79325211EBD6ACF00C6E654 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		D79325231EBD6B4700C6E654 /* Living Expenses-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Living Expenses-Bridging-Header.h"; sourceTree = "<group>"; };
 		D79325241EBD6B4700C6E654 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = "../../../../../../Downloads/fmdb-master/src/fmdb/FMDatabase.h"; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		D79325361EBD910300C6E654 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		D7BA21741EB4726400217481 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		D7BA21781EB482E300217481 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		D7E51FB61EB98A4D00208CC8 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D7E51FBA1EB99E2200208CC8 /* BillDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillDetails.swift; sourceTree = "<group>"; };
 		EA1FBDAB09A6AA8915C07EB1 /* Pods-Living Expenses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Living Expenses.release.xcconfig"; path = "Pods/Target Support Files/Pods-Living Expenses/Pods-Living Expenses.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,8 +119,8 @@
 			children = (
 				D76528291EB2C42C00D7DF69 /* AppDelegate.swift */,
 				D7BA21781EB482E300217481 /* Home.swift */,
+				D768708D1ECECC8300A41031 /* Settings.swift */,
 				D7BA21741EB4726400217481 /* Calendar.swift */,
-				D7E51FB61EB98A4D00208CC8 /* Settings.swift */,
 				D70380D41EBAC65600785C60 /* AddBill.swift */,
 				D7E51FBA1EB99E2200208CC8 /* BillDetails.swift */,
 				D74CF6061EC9B1AC000AB7DF /* UtilityReadings.swift */,
@@ -285,11 +285,11 @@
 				D7BA21791EB482E300217481 /* Home.swift in Sources */,
 				D70380D51EBAC65600785C60 /* AddBill.swift in Sources */,
 				D765282A1EB2C42C00D7DF69 /* AppDelegate.swift in Sources */,
-				D7E51FB71EB98A4D00208CC8 /* Settings.swift in Sources */,
 				D74CF6071EC9B1AC000AB7DF /* UtilityReadings.swift in Sources */,
 				D79325301EBD6B4800C6E654 /* FMDatabaseAdditions.m in Sources */,
 				D79325331EBD6B4800C6E654 /* FMResultSet.m in Sources */,
 				D70380D71EBC16D600785C60 /* BillsHomeTableViewCell.swift in Sources */,
+				D768708E1ECECC8300A41031 /* Settings.swift in Sources */,
 				D79325311EBD6B4800C6E654 /* FMDatabasePool.m in Sources */,
 				D79325321EBD6B4800C6E654 /* FMDatabaseQueue.m in Sources */,
 				D7E51FBB1EB99E2200208CC8 /* BillDetails.swift in Sources */,
