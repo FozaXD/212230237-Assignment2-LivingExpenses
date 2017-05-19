@@ -5,6 +5,8 @@
 //  Created by Alexander Fotheringham on 3/5/17.
 //  Copyright © 2017 Alexander Fotheringham. All rights reserved.
 //
+//Youtube video explanation: https://youtu.be/aH1imREjyV4
+//Github: https://github.com/FozaXD/212230237-Assignment2-LivingExpenses
 
 import UIKit
 
